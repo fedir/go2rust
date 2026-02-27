@@ -1,0 +1,19 @@
+* Host localhost:8081 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:8081...
+* Connected to localhost (::1) port 8081
+* using HTTP/1.x
+> GET /api/v1/openapi.json HTTP/1.1
+> Host: localhost:8081
+> User-Agent: curl/8.15.0
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 200 OK
+< Content-Type: application/json; charset=utf-8
+< Date: Fri, 27 Feb 2026 15:59:02 GMT
+< Transfer-Encoding: chunked
+< 
+{ [2089 bytes data]
+* Connection #0 to host localhost left intact

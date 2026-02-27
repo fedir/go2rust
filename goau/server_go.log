@@ -1,0 +1,26 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /api/v1/records           --> records-api/internal/api.CreateRecord (3 handlers)
+[GIN-debug] GET    /api/v1/records/:uuid     --> records-api/internal/api.GetRecordByUUID (3 handlers)
+[GIN-debug] GET    /api/v1/openapi.yaml      --> records-api/internal/api.GetOpenAPI (3 handlers)
+[GIN-debug] GET    /api/v1/openapi.json      --> records-api/internal/api.GetOpenAPIJSON (3 handlers)
+2026/02/27 16:58:39 Server starting on :8081...
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://github.com/gin-gonic/gin/blob/master/docs/doc.md#dont-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8081
+[GIN] 2026/02/27 - 16:58:48 | 201 |     151.025µs |             ::1 | POST     "/api/v1/records"
+[GIN] 2026/02/27 - 16:58:48 | 200 |      77.157µs |             ::1 | GET      "/api/v1/records/4653ec0f-8301-4b22-b996-60ecd3f8c571"
+[GIN] 2026/02/27 - 16:58:48 | 200 |      33.402µs |             ::1 | GET      "/api/v1/openapi.yaml"
+[GIN] 2026/02/27 - 16:58:48 | 200 |     512.632µs |             ::1 | GET      "/api/v1/openapi.json"
+[GIN] 2026/02/27 - 16:59:02 | 201 |     308.497µs |             ::1 | POST     "/api/v1/records"
+[GIN] 2026/02/27 - 16:59:02 | 200 |      81.604µs |             ::1 | GET      "/api/v1/records/28404721-3eca-4fa6-8818-9226f21b8efd"
+[GIN] 2026/02/27 - 16:59:02 | 200 |      43.918µs |             ::1 | GET      "/api/v1/openapi.yaml"
+[GIN] 2026/02/27 - 16:59:02 | 200 |     510.639µs |             ::1 | GET      "/api/v1/openapi.json"
+[GIN] 2026/02/27 - 17:00:19 | 400 |          80µs |             ::1 | POST     "/api/v1/records"
+[GIN] 2026/02/27 - 17:00:51 | 200 |     455.086µs |             ::1 | GET      "/api/v1/openapi.json"
+[GIN] 2026/02/27 - 17:00:54 | 200 |     104.184µs |             ::1 | GET      "/api/v1/records/4653ec0f-8301-4b22-b996-60ecd3f8c571"
+[GIN] 2026/02/27 - 17:01:05 | 200 |    1.380769ms |             ::1 | GET      "/api/v1/openapi.json"

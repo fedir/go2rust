@@ -1,0 +1,102 @@
+openapi: 3.0.3
+info:
+  title: Records API
+  description: API pour tracer et stocker des données JSON sur le disque local.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api/v1
+paths:
+  /records:
+    post:
+      summary: Créer un nouvel enregistrement
+      operationId: CreateRecord
+      parameters:
+        - name: X-Trace-ID
+          in: header
+          description: ID de traçabilité optionnel
+          required: false
+          schema:
+            type: string
+      requestBody:
+        description: Payload JSON arbitraire
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Enregistrement créé
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  uuid:
+                    type: string
+                    format: uuid
+                    example: "550e8400-e29b-41d4-a716-446655440000"
+  /records/{uuid}:
+    get:
+      summary: Récupérer un enregistrement par son UUID
+      operationId: GetRecordByUUID
+      parameters:
+        - name: uuid
+          in: path
+          required: true
+          description: L'UUID de l'enregistrement à récupérer
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Détails de l'enregistrement
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                  trace_id:
+                    type: string
+                  timestamp:
+                    type: string
+                    format: date-time
+                  payload:
+                    type: object
+        '404':
+          description: Enregistrement non trouvé
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "record not found"
+  /openapi.yaml:
+    get:
+      summary: Récupérer la spécification OpenAPI (YAML)
+      operationId: GetOpenAPI
+      responses:
+        '200':
+          description: La spécification OpenAPI au format YAML
+          content:
+            text/yaml:
+              schema:
+                type: string
+  /openapi.json:
+    get:
+      summary: Récupérer la spécification OpenAPI (JSON)
+      operationId: GetOpenAPIJSON
+      responses:
+        '200':
+          description: La spécification OpenAPI au format JSON
+          content:
+            application/json:
+              schema:
+                type: object

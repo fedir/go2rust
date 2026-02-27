@@ -1,0 +1,6 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running `target/debug/rustau`
+
+thread 'main' (27076) panicked at src/main.rs:36:10:
+Path segments must not start with `:`. For capture groups, use `{capture}`. If you meant to literally match a segment starting with a colon, call `without_v07_checks` on the router.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

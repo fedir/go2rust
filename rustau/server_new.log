@@ -1,0 +1,4 @@
+   Compiling rustau v0.1.0 (/var/home/fedir/Lab/20260227/rustau)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.90s
+     Running `target/debug/rustau`
+Server starting on 0.0.0.0:8081...
