@@ -1,32 +1,33 @@
-# Records API - Documentation Agent
+# Records API - Rust Implementation
 
-API REST en Go (Gin) permettant la réception, le traçage et le stockage de données JSON.
+REST API in Rust (Axum) for receiving, tracing, and storing JSON data. This is a port of the original Go implementation.
 
 ## Architecture
-- **Framework** : `gin-gonic/gin`
-- **Stockage** : Fichiers JSON locaux dans `./data/`
-- **Spécification** : OpenAPI 3.0 (`openapi.yaml`)
+- **Framework**: [Axum](https://github.com/tokio-rs/axum)
+- **Runtime**: [Tokio](https://tokio.rs/)
+- **Storage**: Local JSON files in `./data/`
+- **Specification**: OpenAPI 3.0 (`openapi.yaml`)
 
 ## Endpoints
 
-### 1. Gestion des données
-- `POST /api/v1/records` : Crée un enregistrement.
-    - Header optionnel : `X-Trace-ID`
-    - Payload : JSON arbitraire
-- `GET /api/v1/records/{uuid}` : Récupère un enregistrement stocké.
+### 1. Data Management
+- `POST /api/v1/records`: Create a record.
+    - Optional Header: `X-Trace-ID`
+    - Payload: Arbitrary JSON
+- `GET /api/v1/records/{uuid}`: Retrieve a stored record.
 
 ### 2. Auto-documentation
-- `GET /api/v1/openapi.yaml` : Spécification au format YAML.
-- `GET /api/v1/openapi.json` : Spécification au format JSON (conversion dynamique).
+- `GET /api/v1/openapi.yaml`: Specification in YAML format.
+- `GET /api/v1/openapi.json`: Specification in JSON format (dynamic conversion).
 
-## Développement
-Lancer le serveur :
+## Development
+Run the server:
 ```bash
-CGO_ENABLED=0 go run main.go
+cargo run
 ```
 
-Les fichiers sont stockés dans le dossier `./data` sous la structure suivante :
-- `uuid` : Identifiant unique v4.
-- `trace_id` : ID de traçabilité (header ou auto-généré).
-- `timestamp` : Heure de réception (UTC).
-- `payload` : Données brutes reçues.
+Stored files in the `./data` directory follow this structure:
+- `uuid`: Unique identifier (v4).
+- `trace_id`: Traceability ID (from header or auto-generated).
+- `timestamp`: Reception time (ISO8601 UTC).
+- `payload`: Raw received data.
